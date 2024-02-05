@@ -46,7 +46,7 @@ def prediction():
         print(data)
         pred = model.predict([data])
         if pred[0] == 0:
-            pred = "high risk 😥"
+            pred = "high risk 😥 \n Contact Your Doctor"
         elif pred[0] == 1:
             pred = "Low risk 👍"
         elif pred[0] == 2:
