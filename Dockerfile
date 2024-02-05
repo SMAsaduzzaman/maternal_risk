@@ -1,15 +1,19 @@
+
 FROM tiangolo/uwsgi-nginx-flask:python3.10
 
+# copy the requirements file into the image
+COPY ./app/requirements.txt /app/requirements.txt
+
+# switch working directory
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-RUN pip3 install -r requirements.txt
-
+# production environment
 ENV ENVIRONMENT production
 
-COPY . .
+# copy code from current directory
+COPY ./app /app
 
-EXPOSE 80/tcp
-
-#CMD [ "python", "main.py""]
+#Expose
+EXPOSE 80
