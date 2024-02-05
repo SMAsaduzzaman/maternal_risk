@@ -45,12 +45,12 @@ def prediction():
                 print(ex)
         print(data)
         pred = model.predict([data])
-        if pred[0] == 0:
-            pred = "high risk 😥 \n Contact Your Doctor"
+          if pred[0] == 0:
+            pred = "high risk 😥. Please Contact Your Doctor 👨‍⚕️"
         elif pred[0] == 1:
             pred = "Low risk 👍"
         elif pred[0] == 2:
-            pred = "Mid risk"
+            pred = "Mid risk. "
 
     return render_template("result.html", result=pred)
 
